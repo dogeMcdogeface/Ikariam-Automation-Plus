@@ -1,284 +1,87 @@
-<div class="mainContent minimizableContent">
-    <div class="buildingDescription heightLessBuildingDescription">
-        <h1>Ikariam Automation Plus - Recap</h1>
-    </div>
-
-    
-    <ul class="tabmenu">
-                    <li onclick="ajaxHandlerCall('?view=tradeAdvisor&amp;activeTab=tab_tradeAdvisor'); return false;" id="js_tab_tradeAdvisor" class="tab  selected"><b class="tab_tradeAdvisor">Town News</b>
-            </li>
-                        <li onclick="ajaxHandlerCall('?view=tradeRoutes&amp;activeTab=tab_tradeRoutes'); return false;" id="js_tab_tradeRoutes" class="tab "><b class="tab_tradeRoutes">Trade Routes</b>
-            </li>
-                </ul>
-
-
-    <div id="tab_tradeAdvisor">
-        <div class="contentBox01h">
-            <h3 class="header">Current events (519)</h3>
+<div class="hd header mainHeader invisible">
+   <h3 id="js_mainBoxHeaderTitle">Constructor`s overview</h3>
+   <div id="js_backlinkButton" class="back invisible"></div>
+   <div class="close"></div>
+</div>
+<div class="bd mainContentScroll" style="height: 350px;">
+   <div class="scroll_area scroll_disabled">
+      <div class="scroll_arrow_top"></div>
+      <div class="scroller" style="width: 5px; top: 0px; left: 0px;"></div>
+      <div class="scroll_arrow_bottom"></div>
+   </div>	
+   <div class="mainContent minimizableContent" style="top: 0px;">
+      <div class="buildingDescription">
+         <h1>Constructor`s overview</h1>
+      </div>
+      <ul id="tabmenu" class="tabmenu">
+         <li onclick="ajaxHandlerCall('?view=premiumTradeAdvisor&amp;activeTab=tab_premiumTradeAdvisor'); return false;" id="js_tab_premiumTradeAdvisor" class="tab  selected"><b class="tab_premiumTradeAdvisor">Resources</b>
+         </li>
+         <li onclick="ajaxHandlerCall('?view=premiumTradeAdvisorCitizens&amp;activeTab=tab_premiumTradeAdvisorCitizens'); return false;" id="js_tab_premiumTradeAdvisorCitizens" class="tab "><b class="tab_premiumTradeAdvisorCitizens">Citizens</b>
+         </li>
+         <li onclick="ajaxHandlerCall('?view=premiumTradeAdvisorBuildings&amp;activeTab=tab_premiumTradeAdvisorBuildings'); return false;" id="js_tab_premiumTradeAdvisorBuildings" class="tab "><b class="tab_premiumTradeAdvisorBuildings">Building</b>
+         </li>
+      </ul>
+      <div>
+         <div id="premiumTradeAdvisor" class="contentBox01h">
+            <h3 class="header">Resources overview</h3>
             <div class="content">
-                <div class="filter">
-                    <form id="filterForm" onsubmit="ajaxHandlerCallFromForm(this);return false;" method="POST">
-                        <input type="hidden" name="view" value="tradeAdvisor">
-                        <input type="hidden" name="filter" value="1">
-
-
-                                                    <span class="filterEntry">
-
-
-                          
-                              <span class="filterEntryButton all">
-                                  <span class="icon all"></span>
-                                  <span class="name short_text100">All</span>
-                              </span>
-
-                          
-                      </span>
-
-                                                    <span class="filterEntry">
-
-
-                                                        <span>
-                              <input type="checkbox" class="checkbox invisible" name="military" id="military" checked="checked">
-                              <div id="militaryImg" class="checkbox checked image"></div><div id="militaryImg" class="checkbox checked image"></div></span>
-                              <span class="filterEntryButton">
-                                  <span class="icon military"></span>
-                                  <span class="name short_text100">Military</span>
-                              </span>
-                          
-                      </span>
-
-                                                    <span class="filterEntry">
-
-
-                                                        <span>
-                              <input type="checkbox" class="checkbox invisible" name="transport" id="transport" checked="checked">
-                              <div id="transportImg" class="checkbox checked image"></div><div id="transportImg" class="checkbox checked image"></div></span>
-                              <span class="filterEntryButton">
-                                  <span class="icon transport"></span>
-                                  <span class="name short_text100">Goods</span>
-                              </span>
-                          
-                      </span>
-
-                                                    <span class="filterEntry">
-
-
-                                                        <span>
-                              <input type="checkbox" class="checkbox invisible" name="production" id="production" checked="checked">
-                              <div id="productionImg" class="checkbox checked image"></div><div id="productionImg" class="checkbox checked image"></div></span>
-                              <span class="filterEntryButton">
-                                  <span class="icon production"></span>
-                                  <span class="name short_text100">Production</span>
-                              </span>
-                          
-                      </span>
-
-                                                    <span class="filterEntry">
-
-
-                                                        <span>
-                              <input type="checkbox" class="checkbox invisible" name="espionage" id="espionage" checked="checked">
-                              <div id="espionageImg" class="checkbox checked image"></div><div id="espionageImg" class="checkbox checked image"></div></span>
-                              <span class="filterEntryButton">
-                                  <span class="icon espionage"></span>
-                                  <span class="name short_text100">Espionage</span>
-                              </span>
-                          
-                      </span>
-
-                                                    <span class="filterEntry">
-
-
-                                                        <span>
-                              <input type="checkbox" class="checkbox invisible" name="diplomacy" id="diplomacy" checked="checked">
-                              <div id="diplomacyImg" class="checkbox checked image"></div><div id="diplomacyImg" class="checkbox checked image"></div></span>
-                              <span class="filterEntryButton">
-                                  <span class="icon diplomacy"></span>
-                                  <span class="name short_text100">Diplomacy</span>
-                              </span>
-                          
-                      </span>
-
-                                                    <span class="filterEntry">
-
-
-                                                        <span>
-                              <input type="checkbox" class="checkbox invisible" name="plus" id="plus" checked="checked">
-                              <div id="plusImg" class="checkbox checked image"></div><div id="plusImg" class="checkbox checked image"></div></span>
-                              <span class="filterEntryButton">
-                                  <span class="icon plus"></span>
-                                  <span class="name short_text100">News</span>
-                              </span>
-                          
-                      </span>
-
-                                                    <span class="filterEntry">
-
-
-                                                        <span>
-                              <input type="checkbox" class="checkbox invisible" name="piracy" id="piracy" checked="checked">
-                              <div id="piracyImg" class="checkbox checked image"></div><div id="piracyImg" class="checkbox checked image"></div></span>
-                              <span class="filterEntryButton">
-                                  <span class="icon piracy"></span>
-                                  <span class="name short_text100">Piracy</span>
-                              </span>
-                          
-                      </span>
-
-                                            </form>
-
-                </div>
-                <table class="table01 left clearfloat" id="inboxCity">
-                    <tbody><tr>
-                        <th></th>
-                        <th>Location</th>
-                        <th>Date</th>
-                        <th>Subject</th>
-                    </tr>
-                                                <tr class="alt">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 17:13                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 17:02                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="alt">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 16:59                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 16:52                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="alt">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 16:28                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 16:00                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="alt">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 15:57                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="">
-                                <td class="city">
-                                                                                <span class="category piracy" title="Piracy"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 15:54                                </td>
-                                <td class="subject">
-                                    Your pirates have returned from their capture run and have looted 115 <img src="skin/resources/capturePoints_small.png">  and 40 <img src="skin/resources/icon_gold_small.png"> .                                </td>
-                            </tr>
-                                                    <tr class="alt">
-                                <td class="city">
-                                                                                <span class="category production" title="Production"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊⵊ" href="?view=city&amp;cityId=2070">
-                                        Gamer Town ⵊⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 15:35                                </td>
-                                <td class="subject">
-                                    Your building <a href="?view=city&amp;cityId=2070&amp;dialog=townHall&amp;position=0" title="To the Town Hall">Town Hall</a> was expanded to level 9!                                </td>
-                            </tr>
-                                                    <tr class="">
-                                <td class="city">
-                                                                                <span class="category production" title="Production"></span>
-                                                                        </td>
-                                <td style="white-space:nowrap;" class="short_text100">
-                                    <a title="Jump to the town Gamer Town ⵊⵊ" href="?view=city&amp;cityId=1581">
-                                        Gamer Town ⵊⵊ</a>
-                                </td>
-                                <td class="date">
-                                    14.04.2021 15:34                                </td>
-                                <td class="subject">
-                                    Your building <a href="?view=city&amp;cityId=1581&amp;dialog=townHall&amp;position=0" title="To the Town Hall">Town Hall</a> was expanded to level 9!                                </td>
-                            </tr>
-                                                <tr class="pgnt">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td colspan="2" class="paginator">
-                                                                <div class="paginator_link bold">1-10</div>
-                                                                <a class="paginator_link" onclick="ajaxHandlerCall(this.href);return false;" href="?view=tradeAdvisor&amp;offset=10&amp;lastRead=224730" title="next 10..."><img src="skin/interface/btn_max.png"></a>
-                            </td>
-                                                    </tr>
-                                    </tbody></table>
+               <table class="overview table01">
+                  <tbody>
+                     <tr>
+                        <th class="text">City</th>
+                        <th class="text">In the warehouse</th>
+                        <th class="text" id="js_lvl_column_header">Level</th>
+                        <th class="text">Workers</th>
+                        <th class="text">Production</th>
+                        <th class="text" title="Warehouse capacity limit">Warehouse capacity limit</th>
+                        <th class="text" id="js_wine_consumption_header">Consumption</th>
+                        <th class="text" id="js_wine_consumption_balance_time">Remaining time</th>
+                     </tr>
+                     <tr class="normal">
+                        <td id="js_city1354_name" class="city"><a title="To the town view of Grambella" href="?view=city&amp;cityId=1354">Grambella</a></td>
+                        <td id="js_city1354_storage" class="">334</td>
+                        <td id="js_city1354_level" class="">-</td>
+                        <td id="js_city1354_workers">-</td>
+                        <td id="js_city1354_production">-</td>
+                        <td id="js_city1354_storage_duration">-</td>
+                        <td id="js_city1354_consumption" class="">13/h</td>
+                        <td id="js_city1354_consumption_time_remaining" class="">1D 1h 41m</td>
+                     </tr>
+                     <tr class="alt">
+                        <td id="js_city1589_name" class="city"><a title="To the town view of Danbella" href="?view=city&amp;cityId=1589">Danbella</a></td>
+                        <td id="js_city1589_storage" class="">3,054</td>
+                        <td id="js_city1589_level" class="">-</td>
+                        <td id="js_city1589_workers">-</td>
+                        <td id="js_city1589_production">-</td>
+                        <td id="js_city1589_storage_duration">-</td>
+                        <td id="js_city1589_consumption" class="">18/h</td>
+                        <td id="js_city1589_consumption_time_remaining" class="">7D 1h 40m</td>
+                     </tr>
+                     <tr class="normal">
+                        <td id="js_cityUnterwegs_name" class="city">Goods transports</td>
+                        <td id="js_cityUnterwegs_storage" class="">0</td>
+                        <td id="js_cityUnterwegs_level" class=""></td>
+                        <td id="js_cityUnterwegs_workers">-/-</td>
+                        <td id="js_cityUnterwegs_production">-</td>
+                        <td id="js_cityUnterwegs_storage_duration">-</td>
+                     </tr>
+                     <tr>
+                        <td class="total city">Total</td>
+                        <td class="total stock" id="js_total_storage">3,388</td>
+                        <td id="js_total_level" class=""></td>
+                        <td class="total stock" id="js_total_workers">0</td>
+                        <td class="total stock" id="js_total_production">-</td>
+                        <td></td>
+                        <td class="total stock" id="js_total_consumption">31/h</td>
+                        <td id="js_total_consumption_time_remaining" class=""></td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
             <div class="footer"></div>
-        </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="ft footer"></div>
 
-        
-    </div>
-    </div>
