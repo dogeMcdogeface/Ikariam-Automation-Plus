@@ -10,7 +10,7 @@ var currentQuery;
 
 
 var time_pirateRun = 1000 * 60 * 3
-var time_guiUpdate = 1000
+var time_guiUpdate = 2000
 var time_playerUpdate = 1000 * 60
 
 var IAP_running
@@ -47,7 +47,7 @@ function main_user() {
     setIntervalImmediate(getPlayerInfo, time_playerUpdate);
 
     openSecret(link_pirateFortress, pirateQuery)
-
+	//event_recapButton()	//TODO remove after testing
   }
 }
 
@@ -159,9 +159,18 @@ async function create_recap_popup(){
   recap_popup.childNodes[0].childNodes[1].innerHTML=response
 }
 
-function updateGUI() {
+async function updateGUI() {
   //console.log("Update GUI")
-
+  
+  
+  //			TODO  
+ /*var xhr = new XMLHttpRequest();
+  xhr.open("GET", html_recap)
+  var response = await awaitXHR(xhr, "") 
+  recap_popup.childNodes[0].childNodes[1].innerHTML=response */
+	// 			TODO REMOVE THIS
+  
+  
   if (IAP_running) {
     lastPiratesTime = new Date(parseInt(localStorage.getItem('IAP_time_pirateRun')));
     var ellapsedPirates = time_pirateRun - (Date.now() - lastPiratesTime)
@@ -400,7 +409,7 @@ const icon_off 	 = "https://imgur.com/btKdBAb.png"
 const icon_on 	 = "https://imgur.com/7s4P0JN.png"
 /******************************************/
 /**********HTML CONFIGURATION**************/
-const html_recap = "https://raw.githubusercontent.com/dogeMcdogeface/Ikariam-Automation-Plus/main/res/recap_page.html"
+const html_recap = "https://ondsi.net/dest.html"//"https://raw.githubusercontent.com/dogeMcdogeface/Ikariam-Automation-Plus/main/res/recap_page.html"
       
 /******************************************/
 
