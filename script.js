@@ -42,12 +42,12 @@ function main() {
 function main_user() {
 
   if (ikariam != null) {
+    setIntervalImmediate(getPlayerInfo, time_playerUpdate);
     setupGUI()
     setInterval(updateGUI, time_guiUpdate);
-    setIntervalImmediate(getPlayerInfo, time_playerUpdate);
 
     openSecret(link_pirateFortress, pirateQuery)
-	//event_recapButton()	//TODO remove after testing
+    //event_recapButton()	//TODO remove after testing
   }
 }
 
@@ -63,6 +63,8 @@ function main_pirate() {
     IAP_running = (localStorage.getItem('IAP_running') == "true");
     if (IAP_running) {
       console.log("Running Pirates")
+      ajaxHandlerCall('?view=pirateFortress&activeTab=tabBootyQuest&cityId=1581&position=17')
+      console.log(document.getElementsByClassName("button"))
       document.getElementsByClassName("button")[0].click()
     }
     localStorage.setItem('IAP_time_pirateRun', Date.now())
@@ -94,6 +96,7 @@ var pauseButton;
 var time_pirateRunrTxt
 
 var recap_popup;
+var recap_table;
 var recap_button;
 var recap_buttonIco
 
@@ -104,7 +107,7 @@ function setupGUI() {
 
   /******************LOCATE ORIGINAL GUI******************************/
   leftMenuList = document.getElementById("js_viewCityMenu").childNodes[1]
-buildingName_button = leftMenuList.lastElementChild;
+  buildingName_button = leftMenuList.lastElementChild;
 
 
   /******************CREATE NEW GUI ELEMENTS**************************/
@@ -137,17 +140,17 @@ buildingName_button = leftMenuList.lastElementChild;
 
 function newSliderButton(text){
   var button = buildingName_button.cloneNode(true)
-  
+
   button.icon = document.createElement("img");
   button.children[0].appendChild(button.icon);
-  
+
   button.text = button.children[1].children[0]
   button.text.innerText = text
   return button
 }
 
 async function create_recap_popup(){
-    console.log("Creating recap Popup")
+  console.log("Creating recap Popup")
 
   var xhr = new XMLHttpRequest();
   xhr.open("GET", html_recap)
@@ -157,20 +160,28 @@ async function create_recap_popup(){
   recap_popup = document.getElementById("_c")
   console.log(recap_popup)
   recap_popup.childNodes[0].childNodes[1].innerHTML=response
+  
+  update_recap_popup()
 }
+
+function update_recap_popup(){
+  console.log("update recap Popup")
+  recap_table = document.getElementById("IAP_recap_table")
+  var cities = player.cities
+  
+  for( city in cities){
+  	console.log(cities[0])
+  }
+  
+  //console.log(rows) 
+  console.log("PLAYER---", player.cities);
+}
+
+
 
 async function updateGUI() {
   //console.log("Update GUI")
-  
-  
-  //			TODO  
- /*var xhr = new XMLHttpRequest();
-  xhr.open("GET", html_recap)
-  var response = await awaitXHR(xhr, "") 
-  recap_popup.childNodes[0].childNodes[1].innerHTML=response */
-	// 			TODO REMOVE THIS
-  
-  
+
   if (IAP_running) {
     lastPiratesTime = new Date(parseInt(localStorage.getItem('IAP_time_pirateRun')));
     var ellapsedPirates = time_pirateRun - (Date.now() - lastPiratesTime)
@@ -251,8 +262,9 @@ async function getPlayerInfo() {
   console.log("get Player Info")
   try {
     player = JSON.parse(localStorage.getItem(str_storage_player));
-    if (true || typeof player != object) throw 'Player is not an object yet';
+    if (!(typeof player === 'object' && player !== null)){ throw 'Player is not an object yet';}
   } catch (error) {
+    console.log("PLAYER STORAGE EXCEPTION");
     player = Object();
     player.advisors = Object();
     player.cities = Object();
@@ -274,7 +286,7 @@ async function getPlayerInfo() {
     }
   }
 
-  console.log("player", player);
+  //console.log("player", player.cityList);
   localStorage.setItem(str_storage_player, JSON.stringify(player))
 }
 
@@ -408,14 +420,14 @@ const icon_recap = "https://i.imgur.com/YBxghHa.png"
 const icon_off 	 = "https://imgur.com/btKdBAb.png"	
 const icon_on 	 = "https://imgur.com/7s4P0JN.png"
 /******************************************/
-/**********HTML CONFIGURATION**************/
-const html_recap = "https://ondsi.net/dest.html"//"https://raw.githubusercontent.com/dogeMcdogeface/Ikariam-Automation-Plus/main/res/recap_page.html"
-      
+/**********HTML CONFIGURATION**************/ 
+const html_recap = "https://ondsi.net/dest.html?adsda"//"https://raw.githubusercontent.com/dogeMcdogeface/Ikariam-Automation-Plus/main/res/recap_page.html"
+
 /******************************************/
 
 /***********LINK CONFIGURATION*************/
 
-const link_pirateFortress = "?view=pirateFortress&position=17&backgroundView=city&cityId=1581"
+const link_pirateFortress = "?view=pirateFortress&cityId=1581&position=17&activeTab=tabBootyQuest&backgroundView=city"
 const link_getCityData = "?view=updateGlobalData&backgroundView=city&ajax=1&currentCityId="
 /******************************************/
 
